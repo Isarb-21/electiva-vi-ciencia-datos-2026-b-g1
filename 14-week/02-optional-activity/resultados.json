@@ -1,0 +1,43 @@
+{
+  "filas_tabla": 600000,
+  "rango_datos": [
+    "2024-12-01 00:00:00",
+    "2026-10-26 10:35:00"
+  ],
+  "repeticiones": 7,
+  "lenta": {
+    "ms": 128.0,
+    "filas": 25920,
+    "plan": [
+      "SCAN lectura_sensor"
+    ]
+  },
+  "rapida_sin_indice": {
+    "ms": 26.8,
+    "filas": 25920,
+    "plan": [
+      "SCAN lectura_sensor"
+    ]
+  },
+  "rapida_con_indice": {
+    "ms": 9.2,
+    "filas": 25920,
+    "plan": [
+      "SEARCH lectura_sensor USING INDEX idx_lectura_fecha (fecha_hora>? AND fecha_hora<?)"
+    ]
+  },
+  "resultado_lenta": {
+    "LOT-001": 41.926,
+    "LOT-002": 41.97,
+    "LOT-003": 42.056
+  },
+  "resultado_rapida": {
+    "LOT-001": 41.926,
+    "LOT-002": 41.97,
+    "LOT-003": 42.056
+  },
+  "mismo_resultado": true,
+  "mejora_total_x": 13.9,
+  "mejora_indice_x": 2.9,
+  "mejora_sin_indice_x": 4.8
+}
